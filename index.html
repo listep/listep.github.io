@@ -249,6 +249,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/快乐的Linux命令行（下）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/c5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/30/快乐的Linux命令行（下）/" itemprop="url">快乐的Linux命令行(下)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:25:46+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>查找</strong></p>
+<p>###locate</p>
+<p>locate 数据库由另一个<br>叫做 updatedb 的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转;<br>也就是说，一个任务在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate<br>的系统会每隔一天运行一回 updatedb 程序。因为数据库不能被持续地更新，所以<br>当使用 locate 时，你会发现目前最新的文件不会出现。为了克服这个问题，有可能<br>手动运行 updatedb 程序，更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate zip | grep bin</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，搜索一个给<br>定目录(以及它的子目录)，来查找文件。</p>
+<hr>
+<p><strong>用户定义的行为</strong></p>
+<p>除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。</p>
+<p>重述一遍，因为花括号和分号对于 shell 有特殊含义，所以它们必须被引起来或被转义。</p>
+<hr>
+<p><strong>stat</strong></p>
+<p>我们能够验证它通过使用另一个方便的命令，stat，是一款加大马力的 ls 命令版本。这个 stat 命令会<br>展示系统对某个文件及其属性所知道的所有信息</p>
+<hr>
+<p><strong>创建文件夹，包含多个子目录和文件</strong></p>
+<p>只用这两行，我们就创建了一个包含一百个子目录，每个子目<br>录中包含了 26 个空文件的操练场。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ mkdir -p playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;</span><br><span class="line">[me@linuxbox ~]$ touch playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;/file-&#123;A..Z&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="归档和备份"><a href="#归档和备份" class="headerlink" title="归档和备份"></a>归档和备份</h3><p> gzip 程序被用来压缩一个或多个文件。当执行 gzip 命令时，则原始文件的压缩版会替<br>代原始文件。相对应的 gunzip 程序被用来把压缩文件复原为没有被压缩的版本。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/最大公约数gcd/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -280,7 +418,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:22:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:25:31+08:00">
                 2018-11-30
               </time>
             
@@ -370,153 +508,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/入职前计划/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/c5.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/30/入职前计划/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:22:03+08:00">
-                2018-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="title-入职前计划"><a href="#title-入职前计划" class="headerlink" title="title:入职前计划"></a>title:入职前计划</h2><h2 id="入职前计划"><a href="#入职前计划" class="headerlink" title="入职前计划"></a>入职前计划</h2><p>1.看30本书。</p>
-<p>2.刷完LeetCode的easy和medium难度题。</p>
-<p>3.参加一个比赛。</p>
-<hr>
-<p>11.18号</p>
-<p>今天计划：</p>
-<p>1.搭建个人博客</p>
-<p>2.大概写个《入职计划安排》雏形</p>
-<p>3.收拾东西，明天回学校</p>
-<hr>
-<p>书单要包含：</p>
-<p>1.大数据相关书籍2+</p>
-<p>2.shell脚本书籍1+</p>
-<p>3.Linux命令书籍1+</p>
-<p>4.Python核心编程强化2+</p>
-<p>5.NLP相关书籍5+</p>
-<p>6.推荐系统2+</p>
-<p>7.风险控制2+</p>
-<hr>
-<p>可能要用到的：</p>
-<p>SQL，spark，Scala。</p>
-<p>要再次重新去扩充熟悉的库：</p>
-<p>pandas、sklearn。</p>
-<hr>
-<p>书单：</p>
-<p>快乐的Linux命令行</p>
-<p>Linux命令行与shell脚本编程大全</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/一些网络文章资源/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -536,7 +527,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/30/一些网络文章资源/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/11/30/一些网络文章资源/" itemprop="url">一些网络文章资源</a></h1>
         
 
         <div class="post-meta">
@@ -548,7 +539,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:20:54+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:25:23+08:00">
                 2018-11-30
               </time>
             
@@ -588,8 +579,7 @@
       
         
           
-            <hr>
-<h2 id="title-一些网络文章资源"><a href="#title-一些网络文章资源" class="headerlink" title="title:一些网络文章资源"></a>title:一些网络文章资源</h2><h4 id="机器之心"><a href="#机器之心" class="headerlink" title="机器之心"></a>机器之心</h4><p>让你事半功倍的小众Python库</p>
+            <h4 id="机器之心"><a href="#机器之心" class="headerlink" title="机器之心"></a>机器之心</h4><p>让你事半功倍的小众Python库</p>
 <p>原文链接：</p>
 <p><a href="https://medium.com/analytics-vidhya/python-libraries-for-data-science-other-than-pandas-and-numpy-95da30568fad" target="_blank" rel="noopener">https://medium.com/analytics-vidhya/python-libraries-for-data-science-other-than-pandas-and-numpy-95da30568fad</a></p>
 
@@ -640,7 +630,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/快乐的Linux命令行（下）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/入职前计划/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -659,7 +649,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/30/快乐的Linux命令行（下）/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/11/30/入职前计划/" itemprop="url">入职前计划</a></h1>
         
 
         <div class="post-meta">
@@ -671,7 +661,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:20:22+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-30T22:25:12+08:00">
                 2018-11-30
               </time>
             
@@ -711,26 +701,33 @@
       
         
           
-            <hr>
-<h2 id="title-快乐的Linux命令行-下"><a href="#title-快乐的Linux命令行-下" class="headerlink" title="title:快乐的Linux命令行(下)"></a>title:快乐的Linux命令行(下)</h2><p><strong>查找</strong></p>
-<p>###locate</p>
-<p>locate 数据库由另一个<br>叫做 updatedb 的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转;<br>也就是说，一个任务在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate<br>的系统会每隔一天运行一回 updatedb 程序。因为数据库不能被持续地更新，所以<br>当使用 locate 时，你会发现目前最新的文件不会出现。为了克服这个问题，有可能<br>手动运行 updatedb 程序，更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate zip | grep bin</span><br></pre></td></tr></table></figure>
+            <h2 id="入职前计划"><a href="#入职前计划" class="headerlink" title="入职前计划"></a>入职前计划</h2><p>1.看30本书。</p>
+<p>2.刷完LeetCode的easy和medium难度题。</p>
+<p>3.参加一个比赛。</p>
 <hr>
-<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，搜索一个给<br>定目录(以及它的子目录)，来查找文件。</p>
+<p>11.18号</p>
+<p>今天计划：</p>
+<p>1.搭建个人博客</p>
+<p>2.大概写个《入职计划安排》雏形</p>
+<p>3.收拾东西，明天回学校</p>
 <hr>
-<p><strong>用户定义的行为</strong></p>
-<p>除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。</p>
-<p>重述一遍，因为花括号和分号对于 shell 有特殊含义，所以它们必须被引起来或被转义。</p>
+<p>书单要包含：</p>
+<p>1.大数据相关书籍2+</p>
+<p>2.shell脚本书籍1+</p>
+<p>3.Linux命令书籍1+</p>
+<p>4.Python核心编程强化2+</p>
+<p>5.NLP相关书籍5+</p>
+<p>6.推荐系统2+</p>
+<p>7.风险控制2+</p>
 <hr>
-<p><strong>stat</strong></p>
-<p>我们能够验证它通过使用另一个方便的命令，stat，是一款加大马力的 ls 命令版本。这个 stat 命令会<br>展示系统对某个文件及其属性所知道的所有信息</p>
+<p>可能要用到的：</p>
+<p>SQL，spark，Scala。</p>
+<p>要再次重新去扩充熟悉的库：</p>
+<p>pandas、sklearn。</p>
 <hr>
-<p><strong>创建文件夹，包含多个子目录和文件</strong></p>
-<p>只用这两行，我们就创建了一个包含一百个子目录，每个子目<br>录中包含了 26 个空文件的操练场。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ mkdir -p playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;</span><br><span class="line">[me@linuxbox ~]$ touch playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;/file-&#123;A..Z&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="归档和备份"><a href="#归档和备份" class="headerlink" title="归档和备份"></a>归档和备份</h3><p> gzip 程序被用来压缩一个或多个文件。当执行 gzip 命令时，则原始文件的压缩版会替<br>代原始文件。相对应的 gunzip 程序被用来把压缩文件复原为没有被压缩的版本。</p>
+<p>书单：</p>
+<p>快乐的Linux命令行</p>
+<p>Linux命令行与shell脚本编程大全</p>
 
           
         
