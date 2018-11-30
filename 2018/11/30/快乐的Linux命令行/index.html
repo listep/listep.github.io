@@ -185,7 +185,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home //主页"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-主页 //主页"></i> <br>
             
             首页
           </a>
@@ -193,9 +193,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about   /关于" rel="section">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-关于  //关于"></i> <br>
             
             关于
           </a>
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  1.9k
                 </span>
               
 
@@ -397,10 +397,10 @@
         <p>####一些我新学的知识点梳理</p>
 <p><strong>ln 创建硬链接和符号链接</strong></p>
 <p>硬链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln file link</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> <span class="built_in">file</span> link</span><br></pre></td></tr></table></figure>
 <p>当一个硬链接被删除时，这个链接被删除，但是文 件本身的内容仍然存在(这是说，它所占的磁盘空间不会被重新分配)，直到所有关联这个文件的链接都删除掉 。</p>
 <p>符号链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s item link</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s <span class="keyword">item</span> link</span><br></pre></td></tr></table></figure>
 <p>一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。例<br>如，如果你往一个符号链接里面写入东西，那么相关联的文件也被写入。然而，当你删除一个<br>符号链接时，只有这个链接被删除，而不是文件自身。</p>
 <p>存在原因：</p>
 <p>建立符号链接的目的是为了克服硬链接的两个缺点:硬链接不能跨越物理设备，硬链接不<br>能关联目录，只能是文件。</p>
@@ -411,7 +411,7 @@
 <p>cp -r   ../dir1  .</p>
 <hr>
 <p><strong>别名 </strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias foo=&apos;XX&apos;</span><br><span class="line">unlias foo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> foo=<span class="string">'XX'</span></span><br><span class="line">unlias foo</span><br></pre></td></tr></table></figure>
 <p>注意：等号两侧不要有空格。</p>
 <p>在命令行中定义别名有点儿小问题。当你的 shell 会话结束时，它们会消失。</p>
 <hr>
@@ -419,41 +419,41 @@
 <p>1.删除文件时：用ls测试通配符所匹配的内容，确认无误后，再改为rm来删除。</p>
 <hr>
 <p><strong>重定向</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">重定向,如果没有命令在它之前，会让我们重定向的文件变为空。</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line">追加方式的重定向</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">重定向,如果没有命令在它之前，会让我们重定向的文件变为空。</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line">追加方式的重定向</span><br><span class="line"><span class="meta">&gt;&gt;</span></span><br></pre></td></tr></table></figure>
 <p>前三个看作标准输入，输出和错误，shell 内部参考它们为文件描述符 0，1 和 2。</p>
 <p>然后重定向文件描述符 2(标准错误)到文件描述符 1(标准输出)使用表示法 2&gt;&amp;1。</p>
 <p>标准错误的重定向必须总是出现在标准输出重定向之后，要不然它不起作用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;ls-output.txt 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;ls-output.txt <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>统计行数信息</strong></p>
 <p>wc(字计数)命令是用来显示文件所包含的行，字和字节数</p>
 <hr>
 <p><strong>快速创建一系列文件</strong></p>
 <p>最普遍的应用是，创建一系列的文件或目录列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#123;2007..2009&#125;-0&#123;1..9&#125; &#123;2007..2009&#125;-&#123;10..12&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#123;<span class="number">2007.</span><span class="number">.2009</span>&#125;<span class="number">-0</span>&#123;<span class="number">1.</span><span class="number">.9</span>&#125; &#123;<span class="number">2007.</span><span class="number">.2009</span>&#125;-&#123;<span class="number">10.</span><span class="number">.12</span>&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>展开模式</strong></p>
 <p>命令替换允许我们把一个命令的输出作为一个展开模式来使用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ file $(ls /usr/bin/* | grep zip)</span><br><span class="line">/usr/bin/bunzip2:     symbolic link to `bzip2&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ <span class="keyword">file</span> $(<span class="keyword">ls</span> /usr/bin<span class="comment">/* | grep zip)</span></span><br><span class="line"><span class="comment">/usr/bin/bunzip2:     symbolic link to `bzip2'</span></span><br></pre></td></tr></table></figure>
 <p>也可以，使用倒引号来代替美元符号和括号.</p>
 <hr>
 <p><strong>引用</strong></p>
 <p>shell 提供了一种叫做引用的机制，来有选择地禁止不需要的展开。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">记住，在双引号中，参数展开，算术表达式展开，和命令替换仍然有效</span><br></pre></td></tr></table></figure>
 <p>如果需要禁止所有的展开，我们使用单引号。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ echo text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER</span><br><span class="line">text /home/me/ls-output.txt a b foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ echo &quot;text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER&quot;</span><br><span class="line">text ~/*.txt   &#123;a,b&#125; foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ echo &apos;text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER&apos;</span><br><span class="line">text ~/*.txt  &#123;a,b&#125; $(echo foo) $((2+2)) $USER</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo <span class="built_in">text</span> ~/*.txt &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER</span><br><span class="line"><span class="built_in">text</span> /home/<span class="keyword">me</span>/ls-output.txt a b foo <span class="number">4</span> <span class="keyword">me</span></span><br><span class="line"></span><br><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo <span class="string">"text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER"</span></span><br><span class="line"><span class="built_in">text</span> ~/*.txt   &#123;a,b&#125; foo <span class="number">4</span> <span class="keyword">me</span></span><br><span class="line"></span><br><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo '<span class="built_in">text</span> ~/*.txt &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER'</span><br><span class="line"><span class="built_in">text</span> ~/*.txt  &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER</span><br></pre></td></tr></table></figure>
 <p>正如我们所看到的，随着引用程度加强，越来越多的展开被禁止。</p>
 <hr>
 <p>转义字符</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">经常在双引号中使用转义字符，来有选择地阻止展开。</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>命令行</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">比方说在我们的搜索结果之中，我们得到一行，包含了有趣的命令，像这样</span><br><span class="line"></span><br><span class="line">88  ls -l /usr/bin &gt; ls-output.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">比方说在我们的搜索结果之中，我们得到一行，包含了有趣的命令，像这样</span><br><span class="line"></span><br><span class="line">88  <span class="keyword">ls</span> -l <span class="string">/usr/bin</span> &gt; ls-output.txt</span><br></pre></td></tr></table></figure>
 <p>数字 “88” 是这个命令在历史列表中的行号。随后在使用另一种展开类型时，叫做历史命令 展开，我们会用到这个数字。我们可以这样做，来使用我们所发现的行:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ !88</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[me<span class="variable">@linuxbox</span> ~]<span class="variable">$ </span>!<span class="number">88</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>权限</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">• id –显示用户身份号</span><br><span class="line">• chmod –更改文件模式</span><br><span class="line">• umask –设置默认的文件权限</span><br><span class="line">• su –以另一个用户的身份来运行 shell</span><br><span class="line">• sudo –以另一个用户的身份来执行命令</span><br><span class="line">• chown –更改文件所有者</span><br><span class="line">• chgrp –更改文件组所有权</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">• id –显示用户身份号</span><br><span class="line">• <span class="keyword">chmod</span> –更改文件模式</span><br><span class="line">• <span class="keyword">umask</span> –设置默认的文件权限</span><br><span class="line">• su –以另一个用户的身份来运行 shell</span><br><span class="line">• sudo –以另一个用户的身份来执行命令</span><br><span class="line">• <span class="keyword">chown</span> –更改文件所有者</span><br><span class="line">• chgrp –更改文件组所有权</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>更改模式</strong></p>
 <p>剩下的九个字符，叫做文件模式，代表着文件所有者，文件组所有者，和其他人的读，写， 执行权限。 </p>
@@ -489,11 +489,11 @@
 <hr>
 <p>启动一个程序，让它立即在后台运行，我们在程序命令之后，加上 “&amp;” 字符</p>
 <p>使用 fg命令，让一个进程返回前台执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ jobs</span><br><span class="line">[1]+ Running        xlogo &amp;</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ fg %1</span><br><span class="line">xlogo</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[me<span class="variable">@linuxbox</span> ~]<span class="variable">$ </span>jobs</span><br><span class="line">[<span class="number">1</span>]+ Running        xlogo &amp;</span><br><span class="line"></span><br><span class="line">[me<span class="variable">@linuxbox</span> ~]<span class="variable">$ </span>fg %<span class="number">1</span></span><br><span class="line">xlogo</span><br></pre></td></tr></table></figure>
 <p>fg 命令之后，跟随着一个百分号和工作序号(叫做 jobspec)。</p>
 <hr>
 <p><strong>shell环境</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• printenv –打印部分或所有的环境变量</span><br><span class="line">• set –设置 shell 选项</span><br><span class="line">• export —导出环境变量，让随后执行的程序知道。 • alias –创建命令别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• printenv –打印部分或所有的环境变量</span><br><span class="line">• <span class="builtin-name">set</span> –设置 shell 选项</span><br><span class="line">• <span class="builtin-name">export</span> —导出环境变量，让随后执行的程序知道。 • alias –创建命令别名</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>vim命令重温</strong></p>
 <p>yy   p </p>
