@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-11-30T14:27:56.187Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快乐的Linux命令行</title>
+    <link href="http://yoursite.com/2018/11/30/%E5%BF%AB%E4%B9%90%E7%9A%84Linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>http://yoursite.com/2018/11/30/快乐的Linux命令行/</id>
+    <published>2018-11-30T14:27:56.187Z</published>
+    <updated>2018-11-30T14:27:56.187Z</updated>
+    
+    <content type="html"><![CDATA[<p>####一些我新学的知识点梳理</p><p><strong>ln 创建硬链接和符号链接</strong></p><p>硬链接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln file link</span><br></pre></td></tr></table></figure><p>当一个硬链接被删除时，这个链接被删除，但是文 件本身的内容仍然存在(这是说，它所占的磁盘空间不会被重新分配)，直到所有关联这个文件的链接都删除掉 。</p><p>符号链接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s item link</span><br></pre></td></tr></table></figure><p>一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。例<br>如，如果你往一个符号链接里面写入东西，那么相关联的文件也被写入。然而，当你删除一个<br>符号链接时，只有这个链接被删除，而不是文件自身。</p><p>存在原因：</p><p>建立符号链接的目的是为了克服硬链接的两个缺点:硬链接不能跨越物理设备，硬链接不<br>能关联目录，只能是文件。</p><hr><p><strong>文件之间的拷贝</strong></p><p>如果当下在file文件夹下，有文件夹dir1和dir2 ，拷贝dir1整个文件夹到dir2下。</p><p>在dir2下可以用。这个会把dir1的文件夹及内容复制过去。</p><p>cp -r   ../dir1  .</p><hr><p><strong>别名 </strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias foo=&apos;XX&apos;</span><br><span class="line">unlias foo</span><br></pre></td></tr></table></figure><p>注意：等号两侧不要有空格。</p><p>在命令行中定义别名有点儿小问题。当你的 shell 会话结束时，它们会消失。</p><hr><p><strong>谨慎使用的好习惯：</strong></p><p>1.删除文件时：用ls测试通配符所匹配的内容，确认无误后，再改为rm来删除。</p><hr><p><strong>重定向</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">重定向,如果没有命令在它之前，会让我们重定向的文件变为空。</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line">追加方式的重定向</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure><p>前三个看作标准输入，输出和错误，shell 内部参考它们为文件描述符 0，1 和 2。</p><p>然后重定向文件描述符 2(标准错误)到文件描述符 1(标准输出)使用表示法 2&gt;&amp;1。</p><p>标准错误的重定向必须总是出现在标准输出重定向之后，要不然它不起作用。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;ls-output.txt 2&gt;&amp;1</span><br></pre></td></tr></table></figure><hr><p><strong>统计行数信息</strong></p><p>wc(字计数)命令是用来显示文件所包含的行，字和字节数</p><hr><p><strong>快速创建一系列文件</strong></p><p>最普遍的应用是，创建一系列的文件或目录列表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#123;2007..2009&#125;-0&#123;1..9&#125; &#123;2007..2009&#125;-&#123;10..12&#125;</span><br></pre></td></tr></table></figure><hr><p><strong>展开模式</strong></p><p>命令替换允许我们把一个命令的输出作为一个展开模式来使用:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ file $(ls /usr/bin/* | grep zip)</span><br><span class="line">/usr/bin/bunzip2:     symbolic link to `bzip2&apos;</span><br></pre></td></tr></table></figure><p>也可以，使用倒引号来代替美元符号和括号.</p><hr><p><strong>引用</strong></p><p>shell 提供了一种叫做引用的机制，来有选择地禁止不需要的展开。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">记住，在双引号中，参数展开，算术表达式展开，和命令替换仍然有效</span><br></pre></td></tr></table></figure><p>如果需要禁止所有的展开，我们使用单引号。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ echo text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER</span><br><span class="line">text /home/me/ls-output.txt a b foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ echo &quot;text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER&quot;</span><br><span class="line">text ~/*.txt   &#123;a,b&#125; foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ echo &apos;text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER&apos;</span><br><span class="line">text ~/*.txt  &#123;a,b&#125; $(echo foo) $((2+2)) $USER</span><br></pre></td></tr></table></figure><p>正如我们所看到的，随着引用程度加强，越来越多的展开被禁止。</p><hr><p>转义字符</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">经常在双引号中使用转义字符，来有选择地阻止展开。</span><br></pre></td></tr></table></figure><hr><p><strong>命令行</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">比方说在我们的搜索结果之中，我们得到一行，包含了有趣的命令，像这样</span><br><span class="line"></span><br><span class="line">88  ls -l /usr/bin &gt; ls-output.txt</span><br></pre></td></tr></table></figure><p>数字 “88” 是这个命令在历史列表中的行号。随后在使用另一种展开类型时，叫做历史命令 展开，我们会用到这个数字。我们可以这样做，来使用我们所发现的行:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ !88</span><br></pre></td></tr></table></figure><hr><p><strong>权限</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">• id –显示用户身份号</span><br><span class="line">• chmod –更改文件模式</span><br><span class="line">• umask –设置默认的文件权限</span><br><span class="line">• su –以另一个用户的身份来运行 shell</span><br><span class="line">• sudo –以另一个用户的身份来执行命令</span><br><span class="line">• chown –更改文件所有者</span><br><span class="line">• chgrp –更改文件组所有权</span><br></pre></td></tr></table></figure><hr><p><strong>更改模式</strong></p><p>剩下的九个字符，叫做文件模式，代表着文件所有者，文件组所有者，和其他人的读，写， 执行权限。 </p><p>当设置文件模式后，r，w，x 模式属性。</p><p>八进制表示法</p><p>通过使用 3 个八进制数字，我们能够设置文件所有者，用户组，和其他人的权限.</p><p>虽然八进制到二进制的映射看起来不方便，但通常只会用到一些常见的映射关系:7 (rwx)，6 (rw-)，5 (r-x)，4 (r–)，and 0 (-–)。</p><p>符号表示法</p><p>权限由“r”, “w”, and “x”来指定。</p><p>如果没有指定字符，则假定使用“all”。执行的操作可能是一个“+”字符，表示加上一个 权限，一个“-”，表示删掉一个权限，或者是一个“=”，表示只有指定的权限可用，其它所 有的权限被删除。 </p><p>符号表示法的优点是，允许你设置文件模式的单个组成部分的属性，而没有影响其他的部分。</p><hr><p><strong>umask </strong></p><p>当创建一个文件时，umask 命令控制着文件的默认权限。</p><p>注意掩码中若出现一个数字 1，</p><p>则删除文件模式中和这个 1 在相同位置的属性，在这是指其他人的写权限</p><hr><p><strong>su</strong></p><p>如果包含 “-l” 选项，那么会为指定用户启动一个需要登录的 shell。这意味着会加载此用户<br>的 shell 环境，并且工作目录会更改到这个用户的主目录。</p><p>如果不指定用户，那么就假定是超级用户。注意(不可思议地)，选项 “-l” 可以缩写为”-”，这是经常用<br>到的形式。</p><hr><p><strong>sudo</strong></p><p>su 和 sudo 之间的一个重要区别是 sudo 不会重新启动一个 shell，也不会加载<br>另一个用户的 shell 运行环境。这意味者命令不必用单引号引起来。</p><hr><p>chown 命令只能更改文件所有权，而不是用户组所有权。</p><p>chgrp -更改用户组所有权</p><hr><p><strong>进程是怎么工作的</strong></p><p>当系统启动的时候，内核先把一些它自己的程序初始化为进程，然后运行一个叫做 init 的<br>程序。init，依次地，再运行一系列的称为 init 脚本的 shell 脚本(位于/etc)，它们可以启动<br>所有的系统服务。其中许多系统服务以守护(daemon)程序的形式实现，守护程序仅在后台<br>运行，没有任何用户接口。这样，即使我们没有登录系统，至少系统也在忙于执行一些例行事<br>务。</p><hr><p><strong>内核的作用之一</strong></p><p>内核维护每个进程的信息，以此来保持事情有序。例如，系统分配给每个进程一个数字，<br>这个数字叫做进程 ID 或 PID。PID 号按升序分配，init 进程的 PID 总是 1。内核也对分配给<br>每个进程的内存进行跟踪。</p><hr><p>启动一个程序，让它立即在后台运行，我们在程序命令之后，加上 “&amp;” 字符</p><p>使用 fg命令，让一个进程返回前台执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ jobs</span><br><span class="line">[1]+ Running        xlogo &amp;</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ fg %1</span><br><span class="line">xlogo</span><br></pre></td></tr></table></figure><p>fg 命令之后，跟随着一个百分号和工作序号(叫做 jobspec)。</p><hr><p><strong>shell环境</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">• printenv –打印部分或所有的环境变量</span><br><span class="line">• set –设置 shell 选项</span><br><span class="line">• export —导出环境变量，让随后执行的程序知道。 • alias –创建命令别名</span><br></pre></td></tr></table></figure><hr><p><strong>vim命令重温</strong></p><p>yy   p </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;####一些我新学的知识点梳理&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ln 创建硬链接和符号链接&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;硬链接&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>快乐的Linux命令行(下)</title>
+    <link href="http://yoursite.com/2018/11/30/%E5%BF%AB%E4%B9%90%E7%9A%84Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/11/30/快乐的Linux命令行（下）/</id>
+    <published>2018-11-30T14:25:46.195Z</published>
+    <updated>2018-11-30T14:25:46.195Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>查找</strong></p><p>###locate</p><p>locate 数据库由另一个<br>叫做 updatedb 的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转;<br>也就是说，一个任务在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate<br>的系统会每隔一天运行一回 updatedb 程序。因为数据库不能被持续地更新，所以<br>当使用 locate 时，你会发现目前最新的文件不会出现。为了克服这个问题，有可能<br>手动运行 updatedb 程序，更改为超级用户身份，在提示符下运行 updatedb 命令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate zip | grep bin</span><br></pre></td></tr></table></figure><hr><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，搜索一个给<br>定目录(以及它的子目录)，来查找文件。</p><hr><p><strong>用户定义的行为</strong></p><p>除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。</p><p>重述一遍，因为花括号和分号对于 shell 有特殊含义，所以它们必须被引起来或被转义。</p><hr><p><strong>stat</strong></p><p>我们能够验证它通过使用另一个方便的命令，stat，是一款加大马力的 ls 命令版本。这个 stat 命令会<br>展示系统对某个文件及其属性所知道的所有信息</p><hr><p><strong>创建文件夹，包含多个子目录和文件</strong></p><p>只用这两行，我们就创建了一个包含一百个子目录，每个子目<br>录中包含了 26 个空文件的操练场。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ mkdir -p playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;</span><br><span class="line">[me@linuxbox ~]$ touch playground/dir-&#123;00&#123;1..9&#125;,0&#123;10..99&#125;,100&#125;/file-&#123;A..Z&#125;</span><br></pre></td></tr></table></figure><hr><h3 id="归档和备份"><a href="#归档和备份" class="headerlink" title="归档和备份"></a>归档和备份</h3><p> gzip 程序被用来压缩一个或多个文件。当执行 gzip 命令时，则原始文件的压缩版会替<br>代原始文件。相对应的 gunzip 程序被用来把压缩文件复原为没有被压缩的版本。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;查找&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;###locate&lt;/p&gt;
+&lt;p&gt;locate 数据库由另一个&lt;br&gt;叫做 updatedb 的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转;&lt;br&gt;也就是说，一个任务在特定的时间间隔内被 cron 守
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最大公约数gcd</title>
+    <link href="http://yoursite.com/2018/11/30/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0gcd/"/>
+    <id>http://yoursite.com/2018/11/30/最大公约数gcd/</id>
+    <published>2018-11-30T14:25:31.081Z</published>
+    <updated>2018-11-30T14:25:31.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>百度百科写的是</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">//non-recursion</span><br><span class="line">unsigned int gcd(unsigned int a,unsigned int b)</span><br><span class="line">&#123;</span><br><span class="line">    int r;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">         r=a%b;</span><br><span class="line">         a=b;</span><br><span class="line">         b=r;</span><br><span class="line">    &#125;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;百度百科写的是&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一些网络文章资源</title>
+    <link href="http://yoursite.com/2018/11/30/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%BB%9C%E6%96%87%E7%AB%A0%E8%B5%84%E6%BA%90/"/>
+    <id>http://yoursite.com/2018/11/30/一些网络文章资源/</id>
+    <published>2018-11-30T14:25:23.291Z</published>
+    <updated>2018-11-30T14:25:23.291Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="机器之心"><a href="#机器之心" class="headerlink" title="机器之心"></a>机器之心</h4><p>让你事半功倍的小众Python库</p><p>原文链接：</p><p><a href="https://medium.com/analytics-vidhya/python-libraries-for-data-science-other-than-pandas-and-numpy-95da30568fad" target="_blank" rel="noopener">https://medium.com/analytics-vidhya/python-libraries-for-data-science-other-than-pandas-and-numpy-95da30568fad</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;机器之心&quot;&gt;&lt;a href=&quot;#机器之心&quot; class=&quot;headerlink&quot; title=&quot;机器之心&quot;&gt;&lt;/a&gt;机器之心&lt;/h4&gt;&lt;p&gt;让你事半功倍的小众Python库&lt;/p&gt;
+&lt;p&gt;原文链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.c
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>入职前计划</title>
+    <link href="http://yoursite.com/2018/11/30/%E5%85%A5%E8%81%8C%E5%89%8D%E8%AE%A1%E5%88%92/"/>
+    <id>http://yoursite.com/2018/11/30/入职前计划/</id>
+    <published>2018-11-30T14:25:12.315Z</published>
+    <updated>2018-11-30T14:25:12.315Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="入职前计划"><a href="#入职前计划" class="headerlink" title="入职前计划"></a>入职前计划</h2><p>1.看30本书。</p><p>2.刷完LeetCode的easy和medium难度题。</p><p>3.参加一个比赛。</p><hr><p>11.18号</p><p>今天计划：</p><p>1.搭建个人博客</p><p>2.大概写个《入职计划安排》雏形</p><p>3.收拾东西，明天回学校</p><hr><p>书单要包含：</p><p>1.大数据相关书籍2+</p><p>2.shell脚本书籍1+</p><p>3.Linux命令书籍1+</p><p>4.Python核心编程强化2+</p><p>5.NLP相关书籍5+</p><p>6.推荐系统2+</p><p>7.风险控制2+</p><hr><p>可能要用到的：</p><p>SQL，spark，Scala。</p><p>要再次重新去扩充熟悉的库：</p><p>pandas、sklearn。</p><hr><p>书单：</p><p>快乐的Linux命令行</p><p>Linux命令行与shell脚本编程大全</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;入职前计划&quot;&gt;&lt;a href=&quot;#入职前计划&quot; class=&quot;headerlink&quot; title=&quot;入职前计划&quot;&gt;&lt;/a&gt;入职前计划&lt;/h2&gt;&lt;p&gt;1.看30本书。&lt;/p&gt;
+&lt;p&gt;2.刷完LeetCode的easy和medium难度题。&lt;/p&gt;
+&lt;p&gt;3.参加一个
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo初次搭建blog</title>
+    <link href="http://yoursite.com/2018/11/18/hexo%E5%88%9D%E6%AC%A1%E6%90%AD%E5%BB%BAblog/"/>
+    <id>http://yoursite.com/2018/11/18/hexo初次搭建blog/</id>
+    <published>2018-11-18T03:33:19.000Z</published>
+    <updated>2018-11-30T14:32:35.853Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p>###使用到的教程：</p><p>1.hexo+github搭建个人博客</p><p><a href="http://fangzh.top/2018/2018090514/" target="_blank" rel="noopener">http://fangzh.top/2018/2018090514/</a></p><p>2.hexo搭建博客后，hexo博客的使用方法</p><p><a href="https://blog.csdn.net/wsmrzx/article/details/81478945" target="_blank" rel="noopener">https://blog.csdn.net/wsmrzx/article/details/81478945</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;第一篇博客&quot;&gt;&lt;a href=&quot;#第一篇博客&quot; class=&quot;headerlink&quot; title=&quot;第一篇博客&quot;&gt;&lt;/a&gt;第一篇博客&lt;/h2&gt;&lt;p&gt;###使用到的教程：&lt;/p&gt;
+&lt;p&gt;1.hexo+github搭建个人博客&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/11/18/hello-world/"/>
+    <id>http://yoursite.com/2018/11/18/hello-world/</id>
+    <published>2018-11-18T02:53:43.534Z</published>
+    <updated>2018-11-30T14:24:31.678Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
