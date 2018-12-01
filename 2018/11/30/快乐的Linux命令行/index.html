@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="-books,">
 
 
 
@@ -82,13 +82,14 @@
 
 
 <meta name="description" content="####一些我新学的知识点梳理 ln 创建硬链接和符号链接 硬链接 1ln file link 当一个硬链接被删除时，这个链接被删除，但是文 件本身的内容仍然存在(这是说，它所占的磁盘空间不会被重新分配)，直到所有关联这个文件的链接都删除掉 。 符号链接 1ln -s item link 一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。例如，如果你往一个符号链接里面写入">
+<meta name="keywords" content="-books">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快乐的Linux命令行">
 <meta property="og:url" content="http://yoursite.com/2018/11/30/快乐的Linux命令行/index.html">
 <meta property="og:site_name" content="listep&#39;s blog">
 <meta property="og:description" content="####一些我新学的知识点梳理 ln 创建硬链接和符号链接 硬链接 1ln file link 当一个硬链接被删除时，这个链接被删除，但是文 件本身的内容仍然存在(这是说，它所占的磁盘空间不会被重新分配)，直到所有关联这个文件的链接都删除掉 。 符号链接 1ln -s item link 一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。例如，如果你往一个符号链接里面写入">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-30T14:27:56.187Z">
+<meta property="og:updated_time" content="2018-12-01T05:19:46.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快乐的Linux命令行">
 <meta name="twitter:description" content="####一些我新学的知识点梳理 ln 创建硬链接和符号链接 硬链接 1ln file link 当一个硬链接被删除时，这个链接被删除，但是文 件本身的内容仍然存在(这是说，它所占的磁盘空间不会被重新分配)，直到所有关联这个文件的链接都删除掉 。 符号链接 1ln -s item link 一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。例如，如果你往一个符号链接里面写入">
@@ -341,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T22:27:56+08:00">
-                2018-11-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-01T13:19:46+08:00">
+                2018-12-01
               </time>
             
           </span>
@@ -441,7 +442,7 @@
 <p>shell 提供了一种叫做引用的机制，来有选择地禁止不需要的展开。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">记住，在双引号中，参数展开，算术表达式展开，和命令替换仍然有效</span><br></pre></td></tr></table></figure>
 <p>如果需要禁止所有的展开，我们使用单引号。</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo <span class="built_in">text</span> ~/*.txt &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER</span><br><span class="line"><span class="built_in">text</span> /home/<span class="keyword">me</span>/ls-output.txt a b foo <span class="number">4</span> <span class="keyword">me</span></span><br><span class="line"></span><br><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo <span class="string">"text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER"</span></span><br><span class="line"><span class="built_in">text</span> ~/*.txt   &#123;a,b&#125; foo <span class="number">4</span> <span class="keyword">me</span></span><br><span class="line"></span><br><span class="line">[<span class="keyword">me</span>@linuxbox ~]$ echo '<span class="built_in">text</span> ~/*.txt &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER'</span><br><span class="line"><span class="built_in">text</span> ~/*.txt  &#123;a,b&#125; $(echo foo) $((<span class="number">2</span>+<span class="number">2</span>)) $USER</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[me@linuxbox ~]$ <span class="built_in">echo</span> text ~/*.txt &#123;a,b&#125; $(<span class="built_in">echo</span> foo) $((2+2)) <span class="variable">$USER</span></span><br><span class="line">text /home/me/ls-output.txt a b foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ <span class="built_in">echo</span> <span class="string">"text ~/*.txt &#123;a,b&#125; <span class="variable">$(echo foo)</span> <span class="variable">$((2+2)</span>) <span class="variable">$USER</span>"</span></span><br><span class="line">text ~/*.txt   &#123;a,b&#125; foo 4 me</span><br><span class="line"></span><br><span class="line">[me@linuxbox ~]$ <span class="built_in">echo</span> <span class="string">'text ~/*.txt &#123;a,b&#125; $(echo foo) $((2+2)) $USER'</span></span><br><span class="line">text ~/*.txt  &#123;a,b&#125; $(<span class="built_in">echo</span> foo) $((2+2)) <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
 <p>正如我们所看到的，随着引用程度加强，越来越多的展开被禁止。</p>
 <hr>
 <p>转义字符</p>
@@ -511,6 +512,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/books/" rel="tag"># -books</a>
+          
+        </div>
       
 
       
@@ -625,7 +632,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
