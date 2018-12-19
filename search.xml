@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小米type-c转接坞]]></title>
+    <url>%2F2018%2F12%2F19%2F%E5%B0%8F%E7%B1%B3type-c%E8%BD%AC%E6%8E%A5%E5%9D%9E%2F</url>
+    <content type="text"><![CDATA[​ 这个转接坞，用HDMI接口连接外屏的时候，居然对连接顺序有要求！！！ ​ 但是，没有使用说明这个，我真的先连接HDMI，然后插到我MacPro上，完全没有反应啊。 ​ 我还试着充电什么的，给它各种试验。突然可以用了，第二天，我重新连接，又不行了，我就想，到底是什么原因，原来是连接顺序。 ​ 所以，多谢网络大神发了这个帖子。https://www.v2ex.com/t/419965按照这个，我试验了一下，果然可以了。thanks~]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>-life</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一些网络文章资源]]></title>
     <url>%2F2018%2F12%2F01%2F%E4%B8%80%E4%BA%9B%E7%BD%91%E7%BB%9C%E6%96%87%E7%AB%A0%E8%B5%84%E6%BA%90%2F</url>
     <content type="text"><![CDATA[机器之心让你事半功倍的小众Python库 原文链接： https://medium.com/analytics-vidhya/python-libraries-for-data-science-other-than-pandas-and-numpy-95da30568fad]]></content>

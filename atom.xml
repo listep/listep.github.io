@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-01T05:24:22.193Z</updated>
+  <updated>2018-12-19T03:35:52.744Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小米type-c转接坞</title>
+    <link href="http://yoursite.com/2018/12/19/%E5%B0%8F%E7%B1%B3type-c%E8%BD%AC%E6%8E%A5%E5%9D%9E/"/>
+    <id>http://yoursite.com/2018/12/19/小米type-c转接坞/</id>
+    <published>2018-12-19T03:35:52.744Z</published>
+    <updated>2018-12-19T03:35:52.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    这个转接坞，用HDMI接口连接外屏的时候，居然对连接顺序有要求！！！</p><p>​    但是，没有使用说明这个，我真的先连接HDMI，然后插到我MacPro上，完全没有反应啊。</p><p>​    我还试着充电什么的，给它各种试验。突然可以用了，第二天，我重新连接，又不行了，我就想，到底是什么原因，原来是连接顺序。</p><p>​    所以，多谢网络大神发了这个帖子。<a href="https://www.v2ex.com/t/419965按照这个，我试验了一下，果然可以了。thanks" target="_blank" rel="noopener">https://www.v2ex.com/t/419965按照这个，我试验了一下，果然可以了。thanks</a>~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    这个转接坞，用HDMI接口连接外屏的时候，居然对连接顺序有要求！！！&lt;/p&gt;
+&lt;p&gt;​    但是，没有使用说明这个，我真的先连接HDMI，然后插到我MacPro上，完全没有反应啊。&lt;/p&gt;
+&lt;p&gt;​    我还试着充电什么的，给它各种试验。突然可以用了，第二天，
+      
+    
+    </summary>
+    
+      <category term="日常" scheme="http://yoursite.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="-life" scheme="http://yoursite.com/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>一些网络文章资源</title>
